@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Happy Birthday, VAVVVViiiiiii 🎂</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <audio id="bg-music" loop>
+    <source src="music.mp3" type="audio/mpeg" />
+  </audio>
+
+  <canvas id="particle-canvas"></canvas>
+
+  <!-- SCREEN 1: LOCK SCREEN -->
+  <section id="screen-lock" class="screen active">
+    <div class="lock-wrapper">
+      <div class="lock-header">
+        <div class="lock-icon">🔒</div>
+        <h1 class="lock-title">Enter Your Code</h1>
+        <p class="lock-subtitle">Something special awaits you ✨</p>
+      </div>
+      <div class="pin-dots" id="pin-dots">
+        <div class="dot" id="dot-0"></div>
+        <div class="dot" id="dot-1"></div>
+        <div class="dot" id="dot-2"></div>
+        <div class="dot" id="dot-3"></div>
+      </div>
+      <p class="pin-error hidden" id="pin-error">Wrong passcode, try again! 💕</p>
+      <div class="keypad" id="keypad">
+        <button class="key" data-value="1">1</button>
+        <button class="key" data-value="2">2</button>
+        <button class="key" data-value="3">3</button>
+        <button class="key" data-value="4">4</button>
+        <button class="key" data-value="5">5</button>
+        <button class="key" data-value="6">6</button>
+        <button class="key" data-value="7">7</button>
+        <button class="key" data-value="8">8</button>
+        <button class="key" data-value="9">9</button>
+        <button class="key key-backspace" id="key-back" data-value="back">⌫</button>
+        <button class="key" data-value="0">0</button>
+        <button class="key key-go" id="key-go" data-value="go">Go</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCREEN 2: LOADING SCREEN -->
+  <section id="screen-loading" class="screen hidden">
+    <div class="loading-wrapper">
+      <div class="loader-ring">
+        <div class="loader-inner"></div>
+      </div>
+      <h2 class="loading-hey">Hey you! ✨</h2>
+      <p class="loading-text">Loading your birthday surprise...</p>
+      <div class="loading-dots">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCREEN 3: CAKE & VIDEO SCREEN -->
+  <section id="screen-cake" class="screen hidden">
+    <div class="cake-wrapper">
+      <div class="wish-header">
+        <h2 class="wish-title">Make a Wish ✨</h2>
+        <p class="wish-sub">Close your eyes and dream big, love</p>
+      </div>
+      <div class="cake-container" id="cake-container">
+        <div class="cake-emoji-wrap">
+          <div class="flames" id="flames">
+            <span class="flame" id="f1">🕯️</span>
+            <span class="flame" id="f2">🕯️</span>
+            <span class="flame" id="f3">🕯️</span>
+          </div>
+          <div class="cake-body">🎂</div>
+        </div>
+      </div>
+      <button class="btn-blow" id="btn-blow">Blow Candles 🕯️</button>
+      <div class="countdown-display hidden" id="countdown-display">
+        <span id="countdown-number">3</span>
+      </div>
+      <div class="video-container hidden" id="video-container">
+        <div class="video-label">A little something for you 💌</div>
+        <video id="birthday-video" controls playsinline preload="auto" class="birthday-video">
+          <source src="./birthday_blowout.mp4" type="video/mp4" />
+          Your browser doesn't support video.
+        </video>
+        <button class="btn-proceed hidden" id="btn-proceed">See My Message 💌</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCREEN 4: FINAL REVEAL -->
+  <section id="screen-reveal" class="screen hidden">
+    <div class="reveal-wrapper">
+      <div class="reveal-header">
+        <div class="confetti-emoji">🎉</div>
+        <h1 class="reveal-title">Happy Birthday,<br/><em>Baby!</em></h1>
+        <p class="reveal-tagline">Today the whole world celebrates you 🌹</p>
+      </div>
+      <div class="photo-grid-section">
+        <h3 class="section-label">Us ❤️</h3>
+        <div class="photo-grid" id="photo-grid">
+          <div class="photo-cell"><img src="photo1.jpg" alt="Photo 1" onerror="this.parentNode.classList.add('photo-placeholder')" /></div>
+          <div class="photo-cell"><img src="photo2.jpg" alt="Photo 2" onerror="this.parentNode.classList.add('photo-placeholder')" /></div>
+          <div class="photo-cell"><img src="photo3.jpg" alt="Photo 3" onerror="this.parentNode.classList.add('photo-placeholder')" /></div>
+          <div class="photo-cell"><img src="photo4.jpg" alt="Photo 4" onerror="this.parentNode.classList.add('photo-placeholder')" /></div>
+          <div class="photo-cell"><img src="photo5.jpg" alt="Photo 5" onerror="this.parentNode.classList.add('photo-placeholder')" /></div>
+          <div class="photo-cell"><img src="photo6.jpg" alt="Photo 6" onerror="this.parentNode.classList.add('photo-placeholder')" /></div>
+        </div>
+      </div>
+      <div class="letter-section">
+        <h3 class="section-label">From My Heart 💝</h3>
+        <div class="letter-card">
+          <p class="letter-salutation">My dearest love,</p>
+          <p>Another year of you — another year of sunshine walking into my life in the softest way possible. I don't know how you do it, but you manage to make every single day feel like a privilege.</p>
+          <p>I still remember the first time I saw you and thought, <em>"There she is."</em> Like some part of me already knew. Every moment since has been my favourite memory in the making.</p>
+          <p>You are my calm on the hardest days, my laughter on the quiet ones, and my reason to be better every single morning. You deserve the kind of love that feels like a warm blanket and a wild adventure all at once — and I'm going to spend every day making sure you feel exactly that.</p>
+          <p>So on your birthday, I want you to know: you are seen. You are cherished. You are so deeply, endlessly loved. Not just today — always.</p>
+          <p>Happy birthday, baby. Here's to a year as beautiful as you are. 🥂</p>
+          <p class="letter-sign">Forever yours,<br/><em>Your Person 💕</em></p>
+        </div>
+      </div>
+      <div class="reveal-footer">
+        <p>Made with love, just for you 🌹</p>
+      </div>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
