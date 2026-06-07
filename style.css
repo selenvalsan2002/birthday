@@ -719,3 +719,31 @@ body.scrollable {
   .photo-grid       { gap: 12px; }
   .cake-body        { font-size: 8rem; }
 }
+/* ── BACKGROUND SLIDESHOW ───────────────────────── */
+.bg-slideshow {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+}
+
+.bg-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+}
+
+.bg-slide.active {
+  opacity: 1;
+}
+
+.bg-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(109, 27, 41, 0.78);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 0;
+}
