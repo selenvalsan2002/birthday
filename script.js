@@ -7,7 +7,7 @@
 'use strict';
 
 /* ─── CONFIG ──────────────────────────────────────── */
-const CORRECT_PIN = '1706'; // ← Change the PIN here
+const CORRECT_PIN = '1763'; // ← Change the PIN here
 
 /* ─── DOM REFERENCES ──────────────────────────────── */
 const screens = {
@@ -415,3 +415,39 @@ document.addEventListener('touchmove', (e) => {
 // Lock screen is active by default (set in HTML).
 // Nothing else to initialise — the app is ready.
 console.log('🎂 Birthday surprise app loaded. Awaiting PIN entry...');
+/* ── BACKGROUND SLIDESHOW WITH SHUFFLE ─────────── */
+function startBgSlideshow() {
+  const slides = Array.from(document.querySelectorAll('.bg-slide'));
+  let current = 0;
+
+  function shuffle(arr) {
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+  }
+
+  const images = shuffle([
+    'bg1.jpg',
+    'bg2.jpg',
+    'bg3.jpg',
+    'bg4.jpg',
+    'bg5.jpg',
+    'bg6.jpg'
+  ]);
+
+  slides.forEach((slide, i) => {
+    slide.style.backgroundImage = `url('${images[i]}')`;
+  });
+
+  slides[0].classList.add('active');
+
+  setInterval(() => {
+    slides[current].classList.remove('active');
+    current = (current + 1) % slides.length;
+    slides[current].classList.add('active');
+  }, 5000);
+}
+
+startBgSlideshow();
