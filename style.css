@@ -739,11 +739,4 @@ body.scrollable {
   opacity: 1;
 }
 
-.bg-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(109, 27, 41, 0.78);
-  backdrop-filter: blur(3px);
-  -webkit-backdrop-filter: blur(3px);
-  z-index: 0;
-}
+
