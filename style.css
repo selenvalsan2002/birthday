@@ -407,8 +407,10 @@ body.scrollable {
 /* Video Container */
 .video-container {
  .video-container {
-  width: 100%;
-  max-width: 420px;
+  width: 100vw;
+  max-width: 100vw;
+  margin-left: -20px;
+  margin-right: -20px;
   opacity: 0;
   transition: opacity 0.8s ease;
   display: flex;
