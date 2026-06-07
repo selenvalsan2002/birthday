@@ -13,8 +13,8 @@
   --gold-light:   #e8c97a;
   --pink:         #f4a7b9;
   --pink-soft:    #f9cdd6;
-  --white:        #fdf6f0;
-  --white-muted:  rgba(253,246,240,0.75);
+  --white:        #000000;
+  --white-muted:  rgba(0,0,0,0.85);
   --white-glass:  rgba(253,246,240,0.12);
   --white-card:   rgba(253,246,240,0.10);
   --error:        #f4a7b9;
@@ -760,4 +760,20 @@ body.scrollable {
   -webkit-backdrop-filter: blur(12px) !important;
   border-radius: var(--radius);
   padding: 20px;
+}
+/* ── BLACK TEXT FIXES ───────────────────────────── */
+.letter-card p,
+.lock-title,
+.lock-subtitle,
+.wish-title,
+.wish-sub,
+.reveal-title,
+.reveal-tagline,
+.loading-hey,
+.loading-text,
+.timer-num,
+.timer-label,
+.section-label {
+  color: #000000 !important;
+  text-shadow: none;
 }
