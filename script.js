@@ -231,9 +231,21 @@ keypad.addEventListener('click', (e) => {
 function startMusic() {
   if (!bgMusic.src || bgMusic.src.endsWith('undefined')) return;
   bgMusic.volume = 0.55;
-  bgMusic.play().catch(err => {
-    // Silently fail — autoplay may be blocked in some contexts
+  
+  // Resume audio context if suspended
+  const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+  if (audioContext.state === 'suspended') {
+    audioContext.resume();
+  }
+  
+  bgMusic.play().then(() => {
+    console.log('Music started successfully!');
+  }).catch(err => {
     console.warn('Audio autoplay blocked:', err);
+    // Try again after small delay
+    setTimeout(() => {
+      bgMusic.play().catch(e => console.warn('Second attempt failed:', e));
+    }, 500);
   });
 }
 
