@@ -471,3 +471,37 @@ function startBgSlideshow() {
 }
 
 startBgSlideshow();
+/* ── LOVE TIMER ─────────────────────────────────── */
+function startLoveTimer() {
+  const startDate = new Date('2024-12-05T00:00:00');
+
+  function update() {
+    const now = new Date();
+    const diff = now - startDate;
+
+    const years   = Math.floor(diff / (1000 * 60 * 60 * 24 * 365.25));
+    const months  = Math.floor((diff % (1000 * 60 * 60 * 24 * 365.25)) / (1000 * 60 * 60 * 24 * 30.44));
+    const days    = Math.floor((diff % (1000 * 60 * 60 * 24 * 30.44)) / (1000 * 60 * 60 * 24));
+    const hours   = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+    document.getElementById('t-years').textContent   = years;
+    document.getElementById('t-months').textContent  = months;
+    document.getElementById('t-days').textContent    = days;
+    document.getElementById('t-hours').textContent   = hours;
+    document.getElementById('t-minutes').textContent = minutes;
+    document.getElementById('t-seconds').textContent = seconds;
+  }
+
+  update();
+  setInterval(update, 1000);
+}
+
+const timerObserver = new MutationObserver(() => {
+  if (!screens.reveal.classList.contains('hidden')) {
+    startLoveTimer();
+    timerObserver.disconnect();
+  }
+});
+timerObserver.observe(screens.reveal, { attributes: true });
