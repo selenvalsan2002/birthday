@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>Happy Birthday, VAVVVViiiiiii 🎂</title>
+  <title>Happy Birthday, Baby 🎂</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -14,19 +14,20 @@
   <audio id="bg-music" loop>
     <source src="music.mp3" type="audio/mpeg" />
   </audio>
-<div class="bg-slideshow" id="bg-slideshow">
-  <div class="bg-slide" style="background-image: url('bg1.jpeg')"></div>
-  <div class="bg-slide" style="background-image: url('bg2.jpeg')"></div>
-  <div class="bg-slide" style="background-image: url('bg3.jpeg')"></div>
-  <div class="bg-slide" style="background-image: url('bg4.jpeg')"></div>
-  <div class="bg-slide" style="background-image: url('bg5.jpeg')"></div>
-  <div class="bg-slide" style="background-image: url('bg6.jpeg')"></div>
-  <div class="bg-slide" style="background-image: url('bg7.jpg')"></div>
-<div class="bg-slide" style="background-image: url('bg8.jpg')"></div>
-<div class="bg-slide" style="background-image: url('bg9.jpg')"></div>
-<div class="bg-slide" style="background-image: url('bg10.jpg')"></div>
-<div class="bg-slide" style="background-image: url('bg11.jpg')"></div>
-</div>
+
+  <div class="bg-slideshow" id="bg-slideshow">
+    <div class="bg-slide" style="background-image: url('bg1.jpg')"></div>
+    <div class="bg-slide" style="background-image: url('bg2.jpg')"></div>
+    <div class="bg-slide" style="background-image: url('bg3.jpg')"></div>
+    <div class="bg-slide" style="background-image: url('bg4.jpg')"></div>
+    <div class="bg-slide" style="background-image: url('bg5.jpg')"></div>
+    <div class="bg-slide" style="background-image: url('bg6.jpg')"></div>
+    <div class="bg-slide" style="background-image: url('bg7.jpg')"></div>
+    <div class="bg-slide" style="background-image: url('bg8.jpg')"></div>
+    <div class="bg-slide" style="background-image: url('bg9.jpg')"></div>
+    <div class="bg-slide" style="background-image: url('bg10.jpg')"></div>
+    <div class="bg-slide" style="background-image: url('bg11.jpg')"></div>
+  </div>
 
   <canvas id="particle-canvas"></canvas>
 
@@ -100,7 +101,7 @@
       <div class="video-container hidden" id="video-container">
         <div class="video-label">A little something for you 💌</div>
         <video id="birthday-video" controls playsinline preload="auto" class="birthday-video">
-          <source src="./birthday_blowout.mp4" type="video/mp4" />
+          <source src="birthday_blowout.mp4" type="video/mp4" />
           Your browser doesn't support video.
         </video>
         <button class="btn-proceed hidden" id="btn-proceed">See My Message 💌</button>
@@ -139,6 +140,42 @@
           <p class="letter-sign">Forever yours,<br/><em>Your Person 💕</em></p>
         </div>
       </div>
+
+      <!-- LOVE TIMER -->
+      <div class="timer-section">
+        <h3 class="section-label">Us, Since 💑</h3>
+        <div class="timer-card">
+          <p class="timer-since">Together since December 5, 2024</p>
+          <div class="timer-grid">
+            <div class="timer-block">
+              <span class="timer-num" id="t-years">0</span>
+              <span class="timer-label">Years</span>
+            </div>
+            <div class="timer-block">
+              <span class="timer-num" id="t-months">0</span>
+              <span class="timer-label">Months</span>
+            </div>
+            <div class="timer-block">
+              <span class="timer-num" id="t-days">0</span>
+              <span class="timer-label">Days</span>
+            </div>
+            <div class="timer-block">
+              <span class="timer-num" id="t-hours">0</span>
+              <span class="timer-label">Hours</span>
+            </div>
+            <div class="timer-block">
+              <span class="timer-num" id="t-minutes">0</span>
+              <span class="timer-label">Minutes</span>
+            </div>
+            <div class="timer-block">
+              <span class="timer-num" id="t-seconds">0</span>
+              <span class="timer-label">Seconds</span>
+            </div>
+          </div>
+          <p class="timer-message">Every second with you is a gift 💕</p>
+        </div>
+      </div>
+
       <div class="reveal-footer">
         <p>Made with love, just for you 🌹</p>
       </div>
