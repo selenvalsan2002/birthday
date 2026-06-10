@@ -319,10 +319,9 @@ function blowOutCandles() {
  * Fades in the video container smoothly.
  */
 function revealVideo() {
- const vc = document.getElementById('video-container');
+  const vc = document.getElementById('video-container');
   const vid = document.getElementById('birthday-video');
   
-  // Force show
   vc.classList.remove('hidden');
   vc.style.display = 'flex';
   vc.style.opacity = '0';
@@ -332,22 +331,25 @@ function revealVideo() {
     vid.load();
   }, 200);
 
-  vid.addEventListener('ended', showProceedButton);
-  setTimeout(showProceedButton, 180000);
-  };
+  vid.addEventListener('play', () => {
+    bgMusic.pause();
+  });
 
-  requestAnimationFrame(() => {
-    requestAnimationFrame(() => {
-      videoContainer.classList.add('fade-in');
+  vid.addEventListener('pause', () => {
+    bgMusic.play().catch(err => {
+      console.warn('Music resume blocked:', err);
     });
   });
 
-  // Show "See My Message" button after video ends
-  birthdayVideo.addEventListener('ended', showProceedButton);
+  vid.addEventListener('ended', () => {
+    bgMusic.play().catch(err => {
+      console.warn('Music resume blocked:', err);
+    });
+    showProceedButton();
+  });
 
-  // Also show button after 3 minutes as fallback (180,000 ms)
-  setTimeout(showProceedButton, 180_000);
-
+  setTimeout(showProceedButton, 180000);
+}
 
 /**
  * showProceedButton()
@@ -434,7 +436,12 @@ function startBgSlideshow() {
     'bg3.jpg',
     'bg4.jpg',
     'bg5.jpg',
-    'bg6.jpg'
+    'bg6.jpg',
+    'bg7.jpg',
+    'bg8.jpg',
+    'bg9.jpg',
+    'bg10.jpg',
+    'bg11.jpg'
   ]);
 
   slides.forEach((slide, i) => {
