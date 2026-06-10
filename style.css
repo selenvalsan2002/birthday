@@ -864,3 +864,9 @@ body.scrollable {
   background: rgba(255,255,255,0.1) !important;
   border-color: rgba(201,168,76,0.3) !important;
 }
+/* ── FOOTER TEXT ────────────────────────────────── */
+.reveal-footer p {
+  color: #ffffff !important;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.9) !important;
+  font-size: 0.9rem !important;
+}
