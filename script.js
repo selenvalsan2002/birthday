@@ -200,17 +200,18 @@ function handleKeyPress(value) {
  */
 function checkPin() {
   const entered = currentPin.join('');
-
   if (entered === CORRECT_PIN) {
-    // ✅ Correct PIN — unlock!
-    startMusic();
+    bgMusic.volume = 0.55;
+    bgMusic.play().then(() => {
+      console.log('Music playing!');
+    }).catch(err => {
+      console.warn('Music blocked:', err);
+    });
     transitionToLoading();
   } else {
-    // ❌ Wrong PIN
     showPinError();
   }
 }
-
 // Attach keypad click listener (event delegation)
 keypad.addEventListener('click', (e) => {
   const key = e.target.closest('.key');
